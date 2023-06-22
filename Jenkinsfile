@@ -1,9 +1,9 @@
 node {
     //def mvnHome = tool name: 'Maven_3', type: 'maven'
-    def mvnCli = "usr/bin/mvn"
+    def mvnCli = "/usr/bin/mvn"
 
     stage('Checkout SCM'){
-        git branch: 'master', credentialsId: 'github-creds', url: 'https://github.com/gouthamchilakala/PetClinic'
+        git branch: 'master', credentialsId: 'github-creds', url: 'https://github.com/SoeLinux/petclinic.git'
     }
     stage('Read praram'){
         echo "The environment chosen during the Job execution is ${params.environment}"
