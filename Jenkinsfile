@@ -24,8 +24,8 @@ node {
         junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
     }
     stage('Deploy To Tomcat'){
-        sshagent(['app-server']) {
-            sh 'scp -o StrictHostKeyChecking=no target/*.war tomcat@10.147.18.190:/opt/tomcat/webapps/'
+        steps('Run scp via shell')
+               sh 'scp target/*.war tomcat@10.147.18.190:/opt/tomcat/webapps/'
         }
     }
     stage('Smoke Test'){
