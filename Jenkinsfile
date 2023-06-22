@@ -24,9 +24,7 @@ node {
         junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
     }
     stage('Deploy To Tomcat'){
-        steps {
-               sh 'scp target/*.war tomcat@10.147.18.190:/opt/tomcat/webapps/'
-        }
+              sh 'scp target/*.war tomcat@10.147.18.190:/opt/tomcat/webapps/'
     }
     stage('Smoke Test'){
         sleep 5
