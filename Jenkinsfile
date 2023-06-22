@@ -1,6 +1,6 @@
 node {
-    def mvnHome = tool name: 'Maven_3', type: 'maven'
-    def mvnCli = "${mvnHome}/bin/mvn"
+    //def mvnHome = tool name: 'Maven_3', type: 'maven'
+    def mvnCli = "usr/bin/mvn"
 
     properties([
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')),
