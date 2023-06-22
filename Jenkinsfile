@@ -2,14 +2,6 @@ node {
     //def mvnHome = tool name: 'Maven_3', type: 'maven'
     def mvnCli = "usr/bin/mvn"
 
-    properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')),
-        disableConcurrentBuilds(),
-        [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/SoeLinux/petclinic.git'],
-        [$class: 'ThrottleJobProperty', categories: [], limitOneJobWithMatchingParams: false, maxConcurrentPerNode: 0, maxConcurrentTotal: 0, paramsToUseForLimit: '', throttleEnabled: true, throttleOption: 'project'],
-        pipelineTriggers([githubPush()]),
-        parameters([string(defaultValue: 'DEV', description: 'env name', name: 'environment', trim: false)])
-    ])
     stage('Checkout SCM'){
         git branch: 'master', credentialsId: 'github-creds', url: 'https://github.com/gouthamchilakala/PetClinic'
     }
